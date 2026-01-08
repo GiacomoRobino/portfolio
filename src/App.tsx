@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Giacomo Robino</h1>
-        <a href="/assets/cv.pdf" download className="download-btn">
+        <a href="/assets/cv.pdf" download="Giacomo_Robino_CV.pdf" className="download-btn">
           Download CV
         </a>
       </header>
