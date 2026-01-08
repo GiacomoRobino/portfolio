@@ -3,7 +3,38 @@
   color: #00ff00;
   padding: 16px;
   font-family: 'Courier New', monospace;
-  min-height: 150px;
+  font-size: 14px;
+  min-height: 200px;
   width: 100%;
   box-sizing: border-box;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.terminal p {
+  margin: 4px 0;
+}
+
+.terminal-line {
+  color: #00ff00;
+}
+
+.prompt {
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.terminal-output {
+  color: #00cc00;
+  padding-left: 16px;
+  margin-bottom: 12px !important;
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }

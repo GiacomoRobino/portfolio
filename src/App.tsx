@@ -32,7 +32,7 @@ function App() {
             </div>
           </div>
           <div className="window-body">
-            <p>Welcome to my portfolio!</p>
+            {isExpanded ? <p>Welcome to my portfolio!</p> : <p>Welcome to my portfolio! Enlarge this window to see more</p>}
             {isExpanded && (
               <div className="expanded-content">
                 <Terminal />
