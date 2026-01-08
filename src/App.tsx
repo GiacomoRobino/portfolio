@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import Draggable from 'react-draggable';
 import '98.css';
 import './App.css';
+import Terminal from './components/Terminal';
 
 function App() {
   const nodeRef = useRef<HTMLDivElement>(null);
@@ -32,12 +33,12 @@ function App() {
           </div>
           <div className="window-body">
             <p>Welcome to my portfolio!</p>
-            <button onClick={handleDownload}>Download CV</button>
             {isExpanded && (
               <div className="expanded-content">
-                <p>Hello World</p>
+                <Terminal />
               </div>
             )}
+            <button onClick={handleDownload}>Download CV</button>
           </div>
         </div>
       </Draggable>
