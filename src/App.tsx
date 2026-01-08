@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      <Draggable handle=".title-bar" nodeRef={nodeRef}>
+      <Draggable handle=".title-bar" cancel=".title-bar-controls" nodeRef={nodeRef}>
         <div className={`window ${isExpanded ? 'expanded' : ''}`} ref={nodeRef}>
           <div className="title-bar">
             <div className="title-bar-text">Giacomo Robino</div>

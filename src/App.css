@@ -30,6 +30,8 @@
   cursor: grabbing;
 }
 
+
+
 .window-body {
   display: flex;
   flex-direction: column;
