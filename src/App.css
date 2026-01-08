@@ -8,6 +8,18 @@
 
 .window {
   min-width: 300px;
+  transition: all 0.2s ease;
+}
+
+.window.expanded {
+  min-width: 500px;
+}
+
+.expanded-content {
+  margin-top: 16px;
+  padding: 16px;
+  width: 100%;
+  border-top: 1px solid #808080;
 }
 
 .title-bar {

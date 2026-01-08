@@ -1,10 +1,11 @@
-import React, { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Draggable from 'react-draggable';
 import '98.css';
 import './App.css';
 
 function App() {
   const nodeRef = useRef<HTMLDivElement>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleDownload = () => {
     const link = document.createElement('a');
@@ -13,21 +14,30 @@ function App() {
     link.click();
   };
 
+  const handleMaximize = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   return (
     <div className="App">
       <Draggable handle=".title-bar" nodeRef={nodeRef}>
-        <div className="window" ref={nodeRef}>
+        <div className={`window ${isExpanded ? 'expanded' : ''}`} ref={nodeRef}>
           <div className="title-bar">
             <div className="title-bar-text">Giacomo Robino</div>
             <div className="title-bar-controls">
               <button aria-label="Minimize"></button>
-              <button aria-label="Maximize"></button>
+              <button aria-label="Maximize" onClick={handleMaximize}></button>
               <button aria-label="Close"></button>
             </div>
           </div>
           <div className="window-body">
             <p>Welcome to my portfolio!</p>
             <button onClick={handleDownload}>Download CV</button>
+            {isExpanded && (
+              <div className="expanded-content">
+                <p>Hello World</p>
+              </div>
+            )}
           </div>
         </div>
       </Draggable>
