@@ -7,6 +7,11 @@ import Terminal from './components/Terminal';
 function App() {
   const nodeRef = useRef<HTMLDivElement>(null);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
+
+  const handleMinimize = () => {
+    setIsMinimized(true);
+  };
 
   const handleDownload = () => {
     const link = document.createElement('a');
@@ -21,27 +26,36 @@ function App() {
 
   return (
     <div className="App">
-      <Draggable handle=".title-bar" cancel=".title-bar-controls" nodeRef={nodeRef}>
-        <div className={`window ${isExpanded ? 'expanded' : ''}`} ref={nodeRef}>
-          <div className="title-bar">
-            <div className="title-bar-text">Giacomo Robino</div>
-            <div className="title-bar-controls">
-              <button aria-label="Minimize"></button>
-              <button aria-label="Maximize" onClick={handleMaximize}></button>
-              <button aria-label="Close"></button>
+      <div className="header-bar">
+        {isMinimized && (
+          <button className="taskbar-item" onClick={() => setIsMinimized(false)}>
+            Giacomo Robino
+          </button>
+        )}
+      </div>
+      {!isMinimized && (
+        <Draggable handle=".title-bar" cancel=".title-bar-controls" nodeRef={nodeRef}>
+          <div className={`window ${isExpanded ? 'expanded' : ''}`} ref={nodeRef}>
+            <div className="title-bar">
+              <div className="title-bar-text">Giacomo Robino</div>
+              <div className="title-bar-controls">
+                <button aria-label="Minimize" onClick={handleMinimize}></button>
+                <button aria-label="Maximize" onClick={handleMaximize}></button>
+                <button aria-label="Close"></button>
+              </div>
+            </div>
+            <div className="window-body">
+              {isExpanded ? <p>Welcome to my portfolio!</p> : <p>Welcome to my portfolio! Enlarge this window to see more</p>}
+              {isExpanded && (
+                <div className="expanded-content">
+                  <Terminal />
+                </div>
+              )}
+              <button onClick={handleDownload}>Download CV</button>
             </div>
           </div>
-          <div className="window-body">
-            {isExpanded ? <p>Welcome to my portfolio!</p> : <p>Welcome to my portfolio! Enlarge this window to see more</p>}
-            {isExpanded && (
-              <div className="expanded-content">
-                <Terminal />
-              </div>
-            )}
-            <button onClick={handleDownload}>Download CV</button>
-          </div>
-        </div>
-      </Draggable>
+        </Draggable>
+      )}
     </div>
   );
 }
