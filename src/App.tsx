@@ -16,6 +16,7 @@ function App() {
   const [isContactsExpanded, setIsContactsExpanded] = useState(false);
   const [isContactsMinimized, setIsContactsMinimized] = useState(false);
   const [isContactsClosed, setIsContactsClosed] = useState(true);
+  const [emailCopied, setEmailCopied] = useState(false);
 
   const handleMinimize = () => {
     setIsMinimized(true);
@@ -46,6 +47,12 @@ function App() {
 
   const handleContactsMaximize = () => {
     setIsContactsExpanded(!isContactsExpanded);
+  };
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('robinogiacomo@gmail.com');
+    setEmailCopied(true);
+    setTimeout(() => setEmailCopied(false), 2000);
   };
 
   return (
@@ -111,7 +118,9 @@ function App() {
               </div>
             </div>
             <div className="window-body">
-              <p>Get in touch!</p>
+              <p>Email: robinogiacomo@gmail.com</p>
+              {emailCopied && <p>Email copied!</p>}
+              <button onClick={handleCopyEmail}>Copy email to clipboard</button>
             </div>
           </div>
         </Draggable>
