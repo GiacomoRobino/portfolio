@@ -5,10 +5,17 @@ import './App.css';
 import Terminal from './components/Terminal';
 
 function App() {
+  // CV Window state
   const nodeRef = useRef<HTMLDivElement>(null);
   const [isExpanded, setIsExpanded] = useState(true);
   const [isMinimized, setIsMinimized] = useState(false);
   const [isClosed, setIsClosed] = useState(false);
+
+  // Contacts Window state
+  const contactsRef = useRef<HTMLDivElement>(null);
+  const [isContactsExpanded, setIsContactsExpanded] = useState(false);
+  const [isContactsMinimized, setIsContactsMinimized] = useState(false);
+  const [isContactsClosed, setIsContactsClosed] = useState(true);
 
   const handleMinimize = () => {
     setIsMinimized(true);
@@ -29,6 +36,18 @@ function App() {
     setIsExpanded(!isExpanded);
   };
 
+  const handleContactsMinimize = () => {
+    setIsContactsMinimized(true);
+  };
+
+  const handleContactsClose = () => {
+    setIsContactsClosed(true);
+  };
+
+  const handleContactsMaximize = () => {
+    setIsContactsExpanded(!isContactsExpanded);
+  };
+
   return (
     <div className="App">
       <div className="header-bar">
@@ -43,6 +62,18 @@ function App() {
           }}
         >
           CV - Giacomo Robino
+        </button>
+        <button
+          className={`taskbar-item ${!isContactsMinimized && !isContactsClosed ? 'pressed' : ''}`}
+          onClick={() => {
+            if (isContactsClosed) {
+              setIsContactsClosed(false);
+            } else {
+              setIsContactsMinimized(!isContactsMinimized);
+            }
+          }}
+        >
+          Contacts
         </button>
       </div>
       {!isMinimized && !isClosed && (
@@ -64,6 +95,23 @@ function App() {
                 </div>
               )}
               <button onClick={handleDownload}>Download CV</button>
+            </div>
+          </div>
+        </Draggable>
+      )}
+      {!isContactsMinimized && !isContactsClosed && (
+        <Draggable handle=".title-bar" cancel=".title-bar-controls" nodeRef={contactsRef}>
+          <div className={`window ${isContactsExpanded ? 'expanded' : ''}`} ref={contactsRef}>
+            <div className="title-bar">
+              <div className="title-bar-text">Contacts</div>
+              <div className="title-bar-controls">
+                <button aria-label="Minimize" onClick={handleContactsMinimize}></button>
+                <button aria-label="Maximize" onClick={handleContactsMaximize}></button>
+                <button aria-label="Close" onClick={handleContactsClose}></button>
+              </div>
+            </div>
+            <div className="window-body">
+              <p>Get in touch!</p>
             </div>
           </div>
         </Draggable>
