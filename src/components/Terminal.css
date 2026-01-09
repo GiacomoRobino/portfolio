@@ -38,3 +38,12 @@
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .terminal {
+    min-height: 150px;
+    font-size: 12px;
+    padding: 12px;
+  }
+}

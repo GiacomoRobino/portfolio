@@ -78,3 +78,46 @@
   align-items: center;
   gap: 16px;
 }
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .App {
+    padding-top: 40px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .header-bar {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 32px;
+  }
+
+  .window {
+    position: static !important;
+    transform: none !important;
+    width: calc(100% - 16px);
+    margin: 8px;
+    min-width: unset;
+  }
+
+  .window.expanded {
+    min-width: unset;
+    width: calc(100% - 16px);
+  }
+
+  .title-bar {
+    cursor: default;
+  }
+
+  .title-bar:active {
+    cursor: default;
+  }
+}
+
+@media (max-width: 480px) {
+  .taskbar-item {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+}
