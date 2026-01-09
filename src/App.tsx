@@ -8,9 +8,14 @@ function App() {
   const nodeRef = useRef<HTMLDivElement>(null);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
+  const [isClosed, setIsClosed] = useState(false);
 
   const handleMinimize = () => {
     setIsMinimized(true);
+  };
+
+  const handleClose = () => {
+    setIsClosed(true);
   };
 
   const handleDownload = () => {
@@ -28,13 +33,19 @@ function App() {
     <div className="App">
       <div className="header-bar">
         <button
-          className={`taskbar-item ${!isMinimized ? 'pressed' : ''}`}
-          onClick={() => setIsMinimized(!isMinimized)}
+          className={`taskbar-item ${!isMinimized && !isClosed ? 'pressed' : ''}`}
+          onClick={() => {
+            if (isClosed) {
+              setIsClosed(false);
+            } else {
+              setIsMinimized(!isMinimized);
+            }
+          }}
         >
           CV - Giacomo Robino
         </button>
       </div>
-      {!isMinimized && (
+      {!isMinimized && !isClosed && (
         <Draggable handle=".title-bar" cancel=".title-bar-controls" nodeRef={nodeRef}>
           <div className={`window ${isExpanded ? 'expanded' : ''}`} ref={nodeRef}>
             <div className="title-bar">
@@ -42,7 +53,7 @@ function App() {
               <div className="title-bar-controls">
                 <button aria-label="Minimize" onClick={handleMinimize}></button>
                 <button aria-label="Maximize" onClick={handleMaximize}></button>
-                <button aria-label="Close"></button>
+                <button aria-label="Close" onClick={handleClose}></button>
               </div>
             </div>
             <div className="window-body">
