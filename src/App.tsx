@@ -27,11 +27,12 @@ function App() {
   return (
     <div className="App">
       <div className="header-bar">
-        {isMinimized && (
-          <button className="taskbar-item" onClick={() => setIsMinimized(false)}>
-            CV - Giacomo Robino
-          </button>
-        )}
+        <button
+          className={`taskbar-item ${!isMinimized ? 'pressed' : ''}`}
+          onClick={() => setIsMinimized(!isMinimized)}
+        >
+          CV - Giacomo Robino
+        </button>
       </div>
       {!isMinimized && (
         <Draggable handle=".title-bar" cancel=".title-bar-controls" nodeRef={nodeRef}>
@@ -45,7 +46,7 @@ function App() {
               </div>
             </div>
             <div className="window-body">
-              {isExpanded ? <p>Here is my CV, you can query it using the CLI, or download it with the download button</p> : <p>Here to my CV! Enlarge this window to see more</p>}
+              {isExpanded ? <p>Here is my CV, you can query it using the CLI, or download it with the download button</p> : <p>Here is my CV! Enlarge this window to see more</p>}
               {isExpanded && (
                 <div className="expanded-content">
                   <Terminal />
