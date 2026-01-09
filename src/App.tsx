@@ -121,6 +121,10 @@ function App() {
               <p>Email: robinogiacomo@gmail.com</p>
               {emailCopied && <p>Email copied!</p>}
               <button onClick={handleCopyEmail}>Copy email to clipboard</button>
+              <p>LinkedIn: Giacomo Robino</p>
+              <button onClick={() => window.open('https://www.linkedin.com/in/giacomo-robino-4196ba62/', '_blank')}>
+                Open LinkedIn profile
+              </button>
             </div>
           </div>
         </Draggable>
