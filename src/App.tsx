@@ -57,7 +57,7 @@ function App() {
               </div>
             </div>
             <div className="window-body">
-              {isExpanded ? <p>Here is my CV, you can query it using the CLI, or download it with the download button</p> : <p>Here is my CV! Enlarge this window to see more</p>}
+              {isExpanded ? <p>Here is my CV, you can download it with the download button</p> : <p>Here is my CV! Enlarge this window to see more</p>}
               {isExpanded && (
                 <div className="expanded-content">
                   <Terminal />
