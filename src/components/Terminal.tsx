@@ -35,6 +35,13 @@ function Terminal() {
 
   return (
     <div className="terminal" onClick={handleTerminalClick}>
+      <div className="terminal-photo-container">
+        <img
+          src="/assets/16bit_photo.png"
+          alt="Giacomo Robino"
+          className="terminal-photo"
+        />
+      </div>
       {/* Static CV Content */}
       <p className="terminal-line"><span className="prompt">$</span> whoami</p>
       <p className="terminal-output">Giacomo Robino - Software Engineer
