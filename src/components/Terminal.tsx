@@ -31,6 +31,13 @@ function Terminal() {
         2019-2021 Hanon System - Software Engineer (Python)
       </p>
 
+      <p className="terminal-line"><span className="prompt">$</span> cat studies.txt</p>
+      <p className="terminal-output">
+        2019 Bachelor in Computer Science - University of Turin
+        <br />
+        2014 Master in Law - University of Turin
+      </p>
+
       <p className="terminal-line"><span className="prompt">$</span> <span className="cursor">_</span></p>
     </div>
   );
