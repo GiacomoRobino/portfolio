@@ -18,6 +18,12 @@ function App() {
   const [isContactsClosed, setIsContactsClosed] = useState(true);
   const [emailCopied, setEmailCopied] = useState(false);
 
+  // Articles Window state
+  const articlesRef = useRef<HTMLDivElement>(null);
+  const [isArticlesExpanded, setIsArticlesExpanded] = useState(false);
+  const [isArticlesMinimized, setIsArticlesMinimized] = useState(false);
+  const [isArticlesClosed, setIsArticlesClosed] = useState(true);
+
   const handleMinimize = () => {
     setIsMinimized(true);
   };
@@ -47,6 +53,18 @@ function App() {
 
   const handleContactsMaximize = () => {
     setIsContactsExpanded(!isContactsExpanded);
+  };
+
+  const handleArticlesMinimize = () => {
+    setIsArticlesMinimized(true);
+  };
+
+  const handleArticlesClose = () => {
+    setIsArticlesClosed(true);
+  };
+
+  const handleArticlesMaximize = () => {
+    setIsArticlesExpanded(!isArticlesExpanded);
   };
 
   const handleCopyEmail = () => {
@@ -81,6 +99,18 @@ function App() {
           }}
         >
           Contacts
+        </button>
+        <button
+          className={`taskbar-item ${!isArticlesMinimized && !isArticlesClosed ? 'pressed' : ''}`}
+          onClick={() => {
+            if (isArticlesClosed) {
+              setIsArticlesClosed(false);
+            } else {
+              setIsArticlesMinimized(!isArticlesMinimized);
+            }
+          }}
+        >
+          Articles
         </button>
       </div>
       {!isMinimized && !isClosed && (
@@ -125,6 +155,29 @@ function App() {
               <button onClick={() => window.open('https://www.linkedin.com/in/giacomo-robino-4196ba62/', '_blank')}>
                 Open LinkedIn profile
               </button>
+            </div>
+          </div>
+        </Draggable>
+      )}
+      {!isArticlesMinimized && !isArticlesClosed && (
+        <Draggable handle=".title-bar" cancel=".title-bar-controls" nodeRef={articlesRef}>
+          <div className={`window ${isArticlesExpanded ? 'expanded' : ''}`} ref={articlesRef}>
+            <div className="title-bar">
+              <div className="title-bar-text">Articles</div>
+              <div className="title-bar-controls">
+                <button aria-label="Minimize" onClick={handleArticlesMinimize}></button>
+                <button aria-label="Maximize" onClick={handleArticlesMaximize}></button>
+                <button aria-label="Close" onClick={handleArticlesClose}></button>
+              </div>
+            </div>
+            <div className="window-body">
+              <fieldset>
+                <legend>LLamapedia</legend>
+                <p>A self-generating wiki framework that uses LLMs to automatically create encyclopedia-style pages, recursively expanding from seed topics.</p>
+                <button onClick={() => window.open('https://grobino.substack.com/p/llamapedia', '_blank')}>
+                  Read article
+                </button>
+              </fieldset>
             </div>
           </div>
         </Draggable>
