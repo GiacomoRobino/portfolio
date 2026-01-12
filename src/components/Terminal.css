@@ -39,11 +39,110 @@
   50% { opacity: 0; }
 }
 
+/* Input styling */
+.terminal-input {
+  background: transparent;
+  border: none;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  outline: none;
+  flex: 1;
+  margin-left: 8px;
+  caret-color: transparent;
+  width: 100%;
+  max-width: 300px;
+}
+
+.input-line {
+  display: flex;
+  align-items: center;
+}
+
+/* Command suggestions */
+.command-suggestions {
+  margin-top: 12px;
+}
+
+.suggestions-label {
+  color: #006600;
+  font-size: 12px;
+}
+
+.command-suggestion {
+  background: transparent;
+  border: 1px solid #004400;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  padding: 2px 8px;
+  cursor: pointer;
+  margin: 2px;
+  transition: all 0.2s ease;
+}
+
+.command-suggestion:hover {
+  background: #003300;
+  border-color: #00ff00;
+}
+
+.command-suggestion:focus {
+  outline: 1px solid #00ff00;
+  background: #003300;
+}
+
+/* Error styling */
+.terminal-error {
+  color: #ff4444 !important;
+}
+
+/* Link styling */
+.terminal-link {
+  color: #00ccff;
+  text-decoration: underline;
+}
+
+.terminal-link:hover {
+  color: #00ffff;
+}
+
+/* Welcome message */
+.welcome-message {
+  margin-bottom: 16px;
+  opacity: 0.8;
+}
+
+/* Separator between static CV and interactive area */
+.terminal-separator {
+  border-top: 1px dashed #004400;
+  margin: 16px 0;
+}
+
+/* Command result container */
+.command-result {
+  margin-top: 16px;
+}
+
 /* Mobile responsive styles */
 @media (max-width: 768px) {
   .terminal {
     min-height: 150px;
     font-size: 12px;
     padding: 12px;
+  }
+
+  .terminal-input {
+    font-size: 12px;
+  }
+
+  .command-suggestion {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+
+  .command-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
   }
 }
