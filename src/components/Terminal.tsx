@@ -78,18 +78,21 @@ function Terminal() {
       <div className="command-input-container">
         <div className="terminal-line input-line">
           <span className="prompt">$</span>
-          <input
-            ref={inputRef}
-            type="text"
-            value={inputValue}
-            onChange={(e) => handleInputChange(e.target.value)}
-            onKeyDown={handleKeyDown}
-            className="terminal-input"
-            autoComplete="off"
-            spellCheck={false}
-            aria-label="Terminal input"
-          />
-          <span className="cursor">_</span>
+          <div className="input-wrapper">
+            <span className="input-mirror">{inputValue}</span>
+            <span className="cursor">_</span>
+            <input
+              ref={inputRef}
+              type="text"
+              value={inputValue}
+              onChange={(e) => handleInputChange(e.target.value)}
+              onKeyDown={handleKeyDown}
+              className="terminal-input"
+              autoComplete="off"
+              spellCheck={false}
+              aria-label="Terminal input"
+            />
+          </div>
         </div>
 
         <div className="command-suggestions">
