@@ -37,7 +37,8 @@ function Terminal() {
     <div className="terminal" onClick={handleTerminalClick}>
       {/* Static CV Content */}
       <p className="terminal-line"><span className="prompt">$</span> whoami</p>
-      <p className="terminal-output">Giacomo Robino - Software Engineer</p>
+      <p className="terminal-output">Giacomo Robino - Software Engineer
+      </p>
 
       <p className="terminal-line"><span className="prompt">$</span> cat about.txt</p>
       <p className="terminal-output">

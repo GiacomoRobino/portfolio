@@ -18,11 +18,11 @@ function App() {
   const [isContactsClosed, setIsContactsClosed] = useState(true);
   const [emailCopied, setEmailCopied] = useState(false);
 
-  // Articles Window state
-  const articlesRef = useRef<HTMLDivElement>(null);
-  const [isArticlesExpanded, setIsArticlesExpanded] = useState(false);
-  const [isArticlesMinimized, setIsArticlesMinimized] = useState(false);
-  const [isArticlesClosed, setIsArticlesClosed] = useState(true);
+  // Posts Window state
+  const postsRef = useRef<HTMLDivElement>(null);
+  const [isPostsExpanded, setIsPostsExpanded] = useState(false);
+  const [isPostsMinimized, setIsPostsMinimized] = useState(false);
+  const [isPostsClosed, setIsPostsClosed] = useState(true);
 
   const handleMinimize = () => {
     setIsMinimized(true);
@@ -55,16 +55,16 @@ function App() {
     setIsContactsExpanded(!isContactsExpanded);
   };
 
-  const handleArticlesMinimize = () => {
-    setIsArticlesMinimized(true);
+  const handlePostsMinimize = () => {
+    setIsPostsMinimized(true);
   };
 
-  const handleArticlesClose = () => {
-    setIsArticlesClosed(true);
+  const handlePostsClose = () => {
+    setIsPostsClosed(true);
   };
 
-  const handleArticlesMaximize = () => {
-    setIsArticlesExpanded(!isArticlesExpanded);
+  const handlePostsMaximize = () => {
+    setIsPostsExpanded(!isPostsExpanded);
   };
 
   const handleCopyEmail = () => {
@@ -101,16 +101,16 @@ function App() {
           Contacts
         </button>
         <button
-          className={`taskbar-item ${!isArticlesMinimized && !isArticlesClosed ? 'pressed' : ''}`}
+          className={`taskbar-item ${!isPostsMinimized && !isPostsClosed ? 'pressed' : ''}`}
           onClick={() => {
-            if (isArticlesClosed) {
-              setIsArticlesClosed(false);
+            if (isPostsClosed) {
+              setIsPostsClosed(false);
             } else {
-              setIsArticlesMinimized(!isArticlesMinimized);
+              setIsPostsMinimized(!isPostsMinimized);
             }
           }}
         >
-          Articles
+          Posts
         </button>
       </div>
       {!isMinimized && !isClosed && (
@@ -159,15 +159,15 @@ function App() {
           </div>
         </Draggable>
       )}
-      {!isArticlesMinimized && !isArticlesClosed && (
-        <Draggable handle=".title-bar" cancel=".title-bar-controls" nodeRef={articlesRef}>
-          <div className={`window ${isArticlesExpanded ? 'expanded' : ''}`} ref={articlesRef}>
+      {!isPostsMinimized && !isPostsClosed && (
+        <Draggable handle=".title-bar" cancel=".title-bar-controls" nodeRef={postsRef}>
+          <div className={`window ${isPostsExpanded ? 'expanded' : ''}`} ref={postsRef}>
             <div className="title-bar">
-              <div className="title-bar-text">Articles</div>
+              <div className="title-bar-text">Posts</div>
               <div className="title-bar-controls">
-                <button aria-label="Minimize" onClick={handleArticlesMinimize}></button>
-                <button aria-label="Maximize" onClick={handleArticlesMaximize}></button>
-                <button aria-label="Close" onClick={handleArticlesClose}></button>
+                <button aria-label="Minimize" onClick={handlePostsMinimize}></button>
+                <button aria-label="Maximize" onClick={handlePostsMaximize}></button>
+                <button aria-label="Close" onClick={handlePostsClose}></button>
               </div>
             </div>
             <div className="window-body">
@@ -175,7 +175,7 @@ function App() {
                 <legend>LLamapedia</legend>
                 <p>A self-generating wiki framework that uses LLMs to automatically create encyclopedia-style pages, recursively expanding from seed topics.</p>
                 <button onClick={() => window.open('https://grobino.substack.com/p/llamapedia', '_blank')}>
-                  Read article
+                  Read Post
                 </button>
               </fieldset>
             </div>

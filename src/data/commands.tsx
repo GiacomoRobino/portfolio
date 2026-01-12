@@ -37,7 +37,10 @@ const commands: CommandRegistry = {
     name: 'whoami',
     description: 'Display user identity',
     execute: () => (
-      <p className="terminal-output">{CV_DATA.name} - {CV_DATA.title}</p>
+      <div className="terminal-output">
+        <p>{CV_DATA.name} - {CV_DATA.title} </p>
+        <p>Living in Riva San Vitale, Ticino, Switzerland </p>
+      </div>
     )
   },
 
@@ -104,8 +107,8 @@ const commands: CommandRegistry = {
   },
 
   articles: {
-    name: 'articles',
-    description: 'List published articles',
+    name: 'posts',
+    description: 'List posts',
     execute: () => (
       <div className="terminal-output">
         {CV_DATA.articles.map((article, i) => (
