@@ -25,6 +25,11 @@ const CV_DATA = {
   },
   articles: [
     {
+      title: 'Create your first Claude Code Plugin',
+      description: 'A beginner\'s guide to developing Claude Code plugins',
+      url: 'https://grobino.substack.com/p/create-your-first-claude-code-plugin'
+    },
+    {
       title: 'LLamapedia',
       description: 'A self-generating wiki framework using LLMs',
       url: 'https://grobino.substack.com/p/llamapedia'

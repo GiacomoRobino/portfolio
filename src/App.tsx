@@ -172,6 +172,13 @@ function App() {
             </div>
             <div className="window-body">
               <fieldset>
+                <legend>Create your first Claude Code Plugin</legend>
+                <p>A beginner's guide to developing Claude Code plugins, demonstrating how to create and distribute custom commands, agents, and integrations.</p>
+                <button onClick={() => window.open('https://grobino.substack.com/p/create-your-first-claude-code-plugin', '_blank')}>
+                  Read Post
+                </button>
+              </fieldset>
+              <fieldset>
                 <legend>LLamapedia</legend>
                 <p>A self-generating wiki framework that uses LLMs to automatically create encyclopedia-style pages, recursively expanding from seed topics.</p>
                 <button onClick={() => window.open('https://grobino.substack.com/p/llamapedia', '_blank')}>
