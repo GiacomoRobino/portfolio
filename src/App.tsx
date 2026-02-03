@@ -161,7 +161,7 @@ function App() {
       )}
       {!isPostsMinimized && !isPostsClosed && (
         <Draggable handle=".title-bar" cancel=".title-bar-controls" nodeRef={postsRef}>
-          <div className={`window ${isPostsExpanded ? 'expanded' : ''}`} ref={postsRef}>
+          <div className={`window posts-window ${isPostsExpanded ? 'expanded' : ''}`} ref={postsRef}>
             <div className="title-bar">
               <div className="title-bar-text">Posts</div>
               <div className="title-bar-controls">
@@ -171,6 +171,13 @@ function App() {
               </div>
             </div>
             <div className="window-body">
+              <fieldset>
+                <legend>HumanBase, a Human-to-Moltbook Interface</legend>
+                <p>An interface enabling humans to participate in an AI agent-populated social network.</p>
+                <button onClick={() => window.open('https://grobino.substack.com/p/humanbase-a-human-to-moltbook-interface', '_blank')}>
+                  Read Post
+                </button>
+              </fieldset>
               <fieldset>
                 <legend>Create your first Claude Code Plugin</legend>
                 <p>A beginner's guide to developing Claude Code plugins, demonstrating how to create and distribute custom commands, agents, and integrations.</p>

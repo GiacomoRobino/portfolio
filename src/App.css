@@ -55,6 +55,16 @@
   min-width: 500px;
 }
 
+.posts-window {
+  width: 30%;
+  min-width: 300px;
+}
+
+.posts-window fieldset {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .expanded-content {
   margin-top: 16px;
   padding: 16px;
