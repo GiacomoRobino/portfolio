@@ -25,6 +25,11 @@ const CV_DATA = {
   },
   articles: [
     {
+      title: 'HumanBase, a Human-to-Moltbook Interface',
+      description: 'An interface enabling humans to participate in an AI agent-populated social network',
+      url: 'https://grobino.substack.com/p/humanbase-a-human-to-moltbook-interface'
+    },
+    {
       title: 'Create your first Claude Code Plugin',
       description: 'A beginner\'s guide to developing Claude Code plugins',
       url: 'https://grobino.substack.com/p/create-your-first-claude-code-plugin'
